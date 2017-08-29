@@ -33,7 +33,10 @@ class BrowserSyncPlugin extends Plugin {
 
   run(task_name, config, callback) {
 
-    let parent_folder = 'parent_folder' in config ? config.parent_folder : null;
+    if (!this._GulpQuery.isWatching()) {
+      callback();
+      return;
+    }
 
     let watch;
     if ('from' in config) {
@@ -51,14 +54,22 @@ class BrowserSyncPlugin extends Plugin {
     };
 
     if ('to' in config) {
-      bsCfg.proxy = config['to'];
-    } else {
-      bsCfg = config['bs'];
+
+      if (typeof config['to'] === 'object') {
+        bsCfg = config['to'];
+      } else {
+        bsCfg.proxy = config['to'];
+      }
+
+    }
+
+    if ('bs' in config) {
+      bsCfg = {...bsCfg, ...config['bs']};
     }
 
     let bs = browserSync.create();
 
-    this._GulpQuery.provideBrowserSync(bs);
+    //this._GulpQuery.provideBrowserSync(bs);
 
     bs.init(bsCfg);
 

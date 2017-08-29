@@ -7,8 +7,9 @@
     "email": "nurieff@gmail.com",
     "license": "MIT",
     "dependencies": {
-        "gulp-query": "^1.0.0",
+        "browser-sync": "^2.18.13",
         "gulp": "^3.9.1",
-        "gulp-if": "^2.0.2"
+        "gulp-if": "^2.0.2",
+        "gulp-query": "^1.0.0"
     }
 }
