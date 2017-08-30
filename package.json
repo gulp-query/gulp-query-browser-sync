@@ -1,11 +1,19 @@
 {
     "name": "gulp-query-browser-sync",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "This plugin provides BrowserSync with a single line of code",
     "main": "index.js",
     "author": "Marat Nuriev",
     "email": "nurieff@gmail.com",
     "license": "MIT",
+    "repository": "https://github.com/gulp-query/gulp-query-browser-sync",
+    "keywords": [
+        "browser-sync",
+        "hot",
+        "gulp",
+        "gulp-query",
+        "gulp-query-plugin"
+    ],
     "dependencies": {
         "browser-sync": "^2.18.13",
         "gulp": "^3.9.1",
