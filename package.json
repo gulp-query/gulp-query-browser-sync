@@ -1,7 +1,7 @@
 {
     "name": "gulp-query-browser-sync",
     "version": "1.0.0",
-    "description": "This plugin provides easy way to browser-sync.",
+    "description": "This plugin provides BrowserSync with a single line of code",
     "main": "index.js",
     "author": "Marat Nuriev",
     "email": "nurieff@gmail.com",
