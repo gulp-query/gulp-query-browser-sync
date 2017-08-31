@@ -64,7 +64,7 @@ class BrowserSyncPlugin extends Plugin {
     }
 
     if ('bs' in config) {
-      bsCfg = {...bsCfg, ...config['bs']};
+      bsCfg = Object.assign({},bsCfg,config['bs']);
     }
 
     let bs = browserSync.create();
