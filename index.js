@@ -81,6 +81,8 @@ class BrowserSyncPlugin extends Plugin {
 
         bs.reload();
     });
+
+    callback();
   }
 
 }
