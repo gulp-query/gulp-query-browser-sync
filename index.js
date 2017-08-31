@@ -45,6 +45,8 @@ class BrowserSyncPlugin extends Plugin {
       watch = config['watch'];
     }
 
+    let injectCSS = 'injectCSS' in config ? config['injectCSS'] : true;
+
     if (!Array.isArray(watch)) {
       watch = [watch];
     }
@@ -69,17 +71,25 @@ class BrowserSyncPlugin extends Plugin {
 
     let bs = browserSync.create();
 
-    //this._GulpQuery.provideBrowserSync(bs);
-
     bs.init(bsCfg);
 
     gulp.watch(watch)
       .on('change', (event) => {
+
+        let message = 'reload';
+
+        if (injectCSS && event.path.indexOf('.css') !== -1) {
+          let file = node_path.basename(event.path);
+          message = 'reload ' + file;
+          bs.reload(file);
+        } else {
+          bs.reload();
+        }
+
         this.report(task_name, event.path, bsCfg.proxy, true, [
-          'reload'
+          message
         ]);
 
-        bs.reload();
     });
 
     callback();
