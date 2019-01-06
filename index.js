@@ -74,19 +74,19 @@ class BrowserSyncPlugin extends Plugin {
     bs.init(bsCfg);
 
     gulp.watch(watch)
-      .on('change', (event) => {
+      .on('change', (p) => {
 
         let message = 'reload';
 
-        if (injectCSS && event.path.indexOf('.css') !== -1) {
-          let file = node_path.basename(event.path);
+        if (injectCSS && p.indexOf('.css') !== -1) {
+          let file = node_path.basename(p);
           message = 'reload ' + file;
           bs.reload(file);
         } else {
           bs.reload();
         }
 
-        this.report(task_name, event.path, bsCfg.proxy, true, [
+        this.report(task_name, p, bsCfg.proxy, true, [
           message
         ]);
 

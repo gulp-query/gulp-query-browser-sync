@@ -32,7 +32,7 @@ gulp bs:app watch
 
 ### Options
 ```javascript
-.browserSync({
+.bs({
     name: "task_name", // For gulp bs:task_name
     watch: "src/js/**/*.js", // ["src/js/**/*.js", "views/**/*.php"]
     injectCSS: true, // For reloading only css, if css file was changed
@@ -46,10 +46,10 @@ gulp bs:app watch
 })
 
 // short
-.browserSync([watch], proxy, task_name);
+.bs([watch], proxy, task_name);
 
 // short with config
-.browserSync([watch], proxy, {config});
+.bs([watch], proxy, {config});
 ```
 
 
